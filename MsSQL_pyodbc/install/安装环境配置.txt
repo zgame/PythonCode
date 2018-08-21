@@ -1,0 +1,9 @@
+1. 安装python2.7 ， 并添加到系统path目录下面
+
+2. cd到python2.7的安装目录/scripts/
+
+3. pip install pyodbc-4.0.23-cp27-cp27m-win_amd64.whl的全路径
+例如： 
+
+cd C:\Python27\Scripts
+pip install D:\python\pyodbc-4.0.23-cp27-cp27m-win_amd64.whl

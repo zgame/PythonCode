@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ hello1 }}</h1>
+<p>{{ context }}</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>{{ hello2 }}</p>
+
+<form class='button_one_line' action="notice_del_confirm" method="post"
+      onsubmit="return checkForm()">
+    <input name="uid" type="hidden" value={{ row.0 }}>
+    <button type="submit" class="btn btn-primary">删除</button>
+</form>
+</body>
+</html>
