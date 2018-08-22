@@ -2,9 +2,30 @@ from flask import Flask, render_template, request, Response
 import json
 
 
+def logout(mysql):
+    print("logout----")
+    data = []
+    return Response(json.dumps(data), mimetype='text/plain')
+
+
+
 def login(mysql):
     error = None
     data = []
+    print("dddddddddddddddddddddddddd")
+    if request.method == 'POST':
+        print("Post")
+        print(request.body)
+        received_json_data = json.loads(request.body)
+        u1 = received_json_data.get('username')
+        user = request.body.get('username')
+        idx = request.form.get('password')
+
+        print("get  user:", user)
+        print("get  user:", u1)
+        print("get  id:", idx)
+
+
     if request.method == 'GET':
         user = request.args.get('user')
         idx = request.args.get('id')

@@ -11,12 +11,12 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Student',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('age', models.IntegerField(max_length=11)),
-            ],
-        ),
+        # migrations.CreateModel(
+        #     name='Student',
+        #     fields=[
+        #         ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+        #         ('name', models.CharField(max_length=20)),
+        #         ('age', models.IntegerField(max_length=11)),
+        #     ],
+        # ),
     ]

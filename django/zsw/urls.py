@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from zsw import views
-from zsw.action import echo
+from zsw.action import user
 
 urlpatterns = [
     # Matches any html file - to be used for gentella
@@ -12,7 +12,7 @@ urlpatterns = [
     # url(r'^$', views.index, name='index'),
 
     url(r'^$', views.hello),
-    url(r'^zsw', echo.echoz),
+    url(r'^user/login', user.login),
     url(r'^notice_del_confirm', views.notice_del_confirm),
 
 ]
