@@ -1,0 +1,105 @@
+
+//购买技能
+message CMD_C_BUY_SKILL
+{
+	optional uint32	skill_id = 1;					//技能ID
+	optional int32	count = 2;						//购买数量
+	optional uint32 target_id = 3;					//目标（万炮技能购买使用需要目标）
+};
+
+
+
+
+
+
+
+//获取救济金
+message CMD_C_GET_ALMS
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//猜大小
+message CMD_C_NUM_VAL
+{
+	optional int32 my_result = 1;			//0 - 小  1 - 大
+}
+
+
+
+
+// VIP获取救济金
+message CMD_C_VIP_GET_ALMS
+{
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+//点击获取红包
+message CMD_C_GET_RED_ENVELOPE
+{
+	optional uint32							user_id = 1;					//玩家ID
+	optional uint32							envelope_id = 2;				//红包ID
+}
+
+
+
+
+
+
+
+
+
+//BOSS轮盘请求
+message CMD_C_BOSS_ROULETTE_REQ
+{
+	optional int32 bet_money = 1;           //下注金额
+}
+
+
+
+//触发随机倍数请求
+message CMD_C_RANDOM_MULTIPLE_REQ
+{
+
+}
+
+
+// 幸运猜大小
+message CMD_C_CLASSIC_PRIZE_POOL_GUESS
+{
+	enum BetType
+	{
+		Small = 0;		// 小
+		Big = 1;		// 大
+		Lucky = 2;		// 幸运过关
+	}
+	optional BetType type = 1;	// 押注类型
+}
+
+
+// 领取幸运猜大小奖金
+message CMD_C_CLASSIC_PRIZE_POOL_GUESS_GET
+{
+}

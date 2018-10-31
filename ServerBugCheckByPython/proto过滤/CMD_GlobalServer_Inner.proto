@@ -1,0 +1,48 @@
+
+
+// 累积奖池金额
+message CMD_C_ADD_CLASSIC_PRIZE_POOL
+{
+	optional int64 amount = 1;	// 金额
+}
+
+
+
+
+
+/*********** 梦幻展览相关 ************/
+message FantasyLotteryInfo
+{
+    optional uint32 userId = 1;	                 // 用户ID
+	repeated uint32 number = 2;                  // 中奖编号
+	optional uint32 reward = 3;	                 // 中奖金额
+	optional uint32 numId  = 4;                  // 编号ID
+}
+
+// 用户请求掉落展品
+message CMD_C_FANTASY_DROP_LOTTERY
+{
+	optional uint32 userId = 1;	                 // 用户ID
+	optional uint64 contribute = 2;	             // 充值贡献
+	optional uint32 multiple = 3;                // 炮倍
+	optional uint32 jointimes = 4;               // 今日参与次数
+	optional uint32 ipaytotal = 5;               // 充值总额度
+	optional uint32 viplev = 6;                  // 用户等级
+	optional uint32 faceid = 7;                  // 用户头像
+	optional bytes  nick = 8;                    // 用户呢称
+	optional uint32 costpool = 9;                // 扣除的库存
+}
+
+// 梦幻展览展品列表
+message CMD_S_FANTASY_LOTTERY_LIST
+{
+	repeated FantasyLotteryInfo info = 1;       //  展品信息
+	optional uint32 infoType = 2;               //  同步类型0初始化1添加一条掉落
+}
+
+// 下发梦幻展览活动开放信息
+message CMD_SS_FANTASY_LOTTERY_ACTIVITY_INFO
+{
+	repeated FantasyExhibitionUserRank rank = 1;  // 最近排名
+}
+

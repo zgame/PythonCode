@@ -1,0 +1,53 @@
+// To use the "libprotobuf-lite.lib" library for C++ code.
+option optimize_for = LITE_RUNTIME;
+
+
+// Namespace: MESSAGE
+package CMD_NN;
+
+
+message CMD_S_GM_GameInfo
+{
+	optional bytes  banker_name				= 1;	//庄家名字
+	optional uint32	total_board				= 2;	//局数
+	optional uint64 current_store			= 3;	//当前库存
+	optional uint64	store_down_line			= 4;	//库存下限
+};
+
+
+
+//筛选控制
+message CMD_C_Screen_Control
+{
+	optional bool		   sys_win        = 1;						//是否系统赢
+	optional uint32		 cbtype         = 2;							//0：赢最大； 1：赢最小； 2：指定最大值
+	optional int64	   max_score      = 3;						//指定的最大值
+};
+
+//用户控制
+message CMD_C_UserControl
+{
+	optional bool		  user_win        =1;						//是否玩家赢
+	optional uint32		game_id         =2;						//GameID号
+	optional int32	  cbtype          =3;							//0：赢最大，1：赢最大且平台赢，2：赢最小且平台赢，3：赢最小，4：赢指定最大值
+	optional int64	  max_score       =4;						//指定值
+};
+
+//区域控制
+message CMD_C_AreaControl
+{
+	repeated bool		area_win          =1;         //0：天，1：地，2：玄， 3：黄
+};
+
+//配牌数据
+message CMD_C_Card_Config
+{
+	repeated uint32 cbSendCardData       =1;	//	出牌结果
+};
+
+//消息处理
+message CMD_GM_S_SysMessage
+{
+	optional uint32 sys_type				= 1;	//消息类型 （ 0-普通消息 ）
+	optional bytes  sys_message				= 2;	//消息内容
+};

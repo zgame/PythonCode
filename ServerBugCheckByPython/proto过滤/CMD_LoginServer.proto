@@ -1,0 +1,236 @@
+
+
+
+//请求在线奖励
+message CMD_C_GET_ONLINE_GIFT_CHECK_GET
+{
+	optional	uint32		user_id		= 1;
+	optional	int32		nType		= 2;
+}
+
+
+//请求在线奖励列表
+message CMD_C_GET_ONLINE_GIFT_TYPE
+{
+}
+
+
+message CMD_C_GIFT_PACKAGE_INFO
+{
+	
+}
+
+
+//请求更新我的礼包
+message CMD_C_MY_GIFT_PACK
+{
+	optional	int32 	user_id = 1;
+}
+
+
+
+//领取7日礼包请求
+message CMD_C_SEVEN_DAY_GIFT_GET
+{
+	optional	uint32 	user_id			= 1; //角色ID
+	optional	int32	gift_id			= 2; //七日礼包ID
+	optional	uint32	version         = 3; //客户端版本，已备后期使用
+}
+
+
+
+
+message CMD_MB_C2S_GetDialMoneyInfo
+{
+	optional uint32							user_id = 1;			//用户 ID
+};
+
+
+
+message CMD_MB_C2S_PlayDial
+{
+	optional uint32							user_id = 1;			//用户 ID
+};
+
+
+
+
+
+//得到奖励（绑定，首冲）
+message CMD_MB_C2S_Get_Reward
+{
+	enum GETREWARDTYPE
+	{
+		GRT_BIND		 = 1;		
+		GRT_FIRSTPAY	 = 2;
+	}
+	optional uint32							user_id = 1;			//用户 ID
+	optional GETREWARDTYPE					type =2;
+}
+
+
+
+
+
+
+message CMD_MB_C2L_PRODUCT_INFO
+{
+	optional uint32 user_id = 1;
+}
+
+
+
+
+
+
+
+
+message CMD_MB_C_RefreshMoney
+{
+	optional uint32		user_id = 1;			// 用户ID
+}
+
+
+
+
+
+
+
+message CMD_MB_C2S_DIAMOND_EXCHANGE
+{
+	optional uint32						user_id = 1;						//用户ID
+	optional uint32						diamond = 2;						//钻石数量
+}
+
+
+message CMD_C_DIAL_RECORD
+{
+
+}
+
+
+
+
+//请求竞技场排名
+message CMD_MB_C_REQUEST_ARENA_RANK
+{
+}
+
+
+//捕鱼达人排名
+message CMD_MB_C_REQUEST_ARENA_RANK_EVERY_DAY
+{
+
+}
+
+
+
+
+//解锁炮
+message CMD_MB_C_UNLOCK_CANNON_MULTIPLE
+{
+	optional uint32 level = 1;				//要解锁的炮等级
+}
+
+
+
+
+message CMD_MB_C_GET_INVITE_REWARD
+{
+	optional uint32		gift_id	= 1; 
+}
+
+
+
+
+
+
+
+//获取时间礼包
+message CMD_MB_C_GET_TIMEGIFT
+{
+	optional int32		timegift_id = 1;		//时间礼包ID
+}
+
+
+
+//点赞
+message CMD_MB_C_CLICK_PRAISE
+{
+	optional uint32 user_id = 1;				//用户ID	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//领取解锁炮倍数奖励
+message CMD_MB_C_GET_UNLOCK_CANNON_REWARD
+{
+	optional uint32							day = 1;				//领取第几天的奖励
+	optional uint32							select_reward = 2;		//选择的奖励0:选择道具,1:选择京东卡
+	optional bytes							real_name = 3;			//真实姓名
+	optional bytes							mobile_phone = 4;		//手机号码
+	optional bytes							id_num = 5;				// 身份证号码	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//转换道具
+message CMD_MB_C_RECHANGE_ITEM
+{
+	optional uint32	  item_id = 1;	
+}
+
+
+// H5微端登录领取微端奖励
+message CMD_C_GET_H5_CLINET_AWARD
+{
+	
+}
+
+
+
+
+message   CMD_C_vipForge	//获取vip锻造优惠				
+{
+  optional  int32           viplv=1;          		  //vip等级
+
+}
+
+
+
+
+
+
+// 领取vip房间每日任务奖励
+message CMD_C_GET_VIP_ROOM_MISSION_REWARD
+{
+	optional uint32 cell_score = 1;			                // (0)
+}
+
+
+
+
+
+
+

@@ -1,0 +1,149 @@
+
+
+
+
+message CMD_MB_C2S_PURCHASE_TRADE_VIEW_STATUS
+{
+	optional uint32				user_id = 1;
+	optional bytes 				local_language = 2;
+	optional uint32             recharge_type = 3;      //充值类型0无1金币2钻石3礼包
+	optional uint32             recharge_value = 4;     //充值选项（类型1-2）为具体数目,类型3为礼包ID
+};
+
+
+
+
+//领取周常藏宝阁奖励
+message CMD_MB_C_GET_WEEK_REWARD
+{
+	optional int32 puzzles_id = 1;			        //藏宝阁图纸ID
+}
+
+
+
+
+
+
+message CMD_MB_C_SDK_BIND
+{
+	optional uint32 user_id = 1;
+	optional bytes sdk_id = 2;
+	optional uint32	login_type = 3;
+}
+
+
+
+
+
+
+
+
+
+
+// 领取任务奖励
+message CMD_C_GET_LUCKY_NUMBER_TASK_REWARD
+{
+	optional uint32 task_id = 1;			// 任务ID
+}
+
+
+
+
+
+
+
+
+
+
+
+// 领取活动奖励
+message CMD_C_GET_LUCKY_NUMBER_REWARD
+{
+}
+
+
+
+
+
+
+
+// 通过幸运数字任务充值
+message CMD_C_RECHARGE_IN_LUCKY_NUMBER
+{
+	optional uint32 task_id = 1;	// 任务ID
+	optional uint32 recharge = 2;	// 充值金额
+}
+
+
+
+
+
+
+message CMD_C_USER_LOGINDAY_REWARD
+{
+    optional uint32    user_id = 1;
+}
+
+
+
+
+
+
+
+message CMD_C_CARNIVAL_WELFARE_INFO
+{
+    optional uint32    user_id = 1;
+}
+
+
+
+
+
+message CMD_C_CARNIVAL_WELFARE_DRAW
+{
+    optional uint32    user_id = 1;
+}
+
+
+
+message CMD_C_CARNIVAL_WELFARE_REWARD
+{
+    optional uint32    user_id = 1;
+}
+
+
+
+
+// 请求获取任务奖励
+message CMD_C_Mission_BeReward
+{
+	optional uint32	   mission_id = 1;		//任务ID
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

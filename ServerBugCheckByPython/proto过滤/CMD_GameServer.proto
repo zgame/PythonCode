@@ -1,0 +1,43 @@
+
+
+//请求在线奖励
+message CMD_C_GET_ONLINE_GIFT_CHECK_GET_FOR_GAME
+{
+	optional	uint32		user_id		= 1;
+	optional	int32		nType		= 2;
+}
+
+
+
+
+
+
+//请求更新我的礼包
+message CMD_C_MY_GIFT_PACK_GS
+{
+
+}
+
+
+
+
+
+//请求获取明日礼包
+message CMD_C_TOMORROW_PACKAGE
+{
+	optional uint32							user_id = 1;			//用户 ID
+	optional uint32							version = 2;			//版本信息
+}
+
+
+
+//转换道具
+message CMD_GR_C_RECHANGE_ITEM
+{
+	optional uint32	  item_id = 1;	
+}
+
+
+
+
+

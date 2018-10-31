@@ -1,0 +1,112 @@
+
+
+
+/*********** 经典大奖池相关 ************/
+
+// 轮盘中奖人信息
+message LuckyGuyInfo
+{
+	optional uint32 user_id = 1;	// 用户ID
+	optional bytes nick = 2;	// 昵称
+	optional uint32 reward = 3; // 中奖金额
+	optional uint32 face_id = 4;	// 头像ID
+	optional uint32 vip_lev = 5;	// vip等级
+}
+
+// 大奖池类型
+enum PoolType
+{
+	Classic = 0;		// 经典场
+	Monster = 1;		// 妖怪场
+}
+
+// 获取奖池信息
+message CMD_C_GET_CLASSIC_PRIZE_POOL
+{
+	// 获取奖池信息类型
+	enum GetPrizePoolType
+	{
+		OnlyStock = 0;		// 只有奖池金额
+		ContainExtend = 1;	// 包含扩展信息
+	}
+	optional GetPrizePoolType type = 1;	// 获取奖池信息类型
+	optional PoolType pool_type = 2;	// 大奖池类型
+}
+
+
+
+// 奖池轮盘抽奖
+message CMD_C_CLASSIC_PRIZE_POOL_DRAW_TURN
+{
+	optional uint32 star = 1;			// 幸运星数量
+	optional LuckyGuyInfo player = 2;	// 抽奖人信息
+}
+
+
+// 奖池轮盘抽奖排行
+message CMD_C_CLASSIC_PRIZE_POOL_TURN_RANK
+{
+}
+
+
+
+
+
+
+/************* 梦幻展览活动相关 *****************/
+// 梦幻展览活动
+enum FantasyExhibitionState
+{
+    Wait  = 0;      // 等待
+	Start = 1;      // 开始
+	InPlay = 2;	    // 活动中
+	Over = 3;	    // 结束
+}
+
+// 梦幻展览活动状态
+message CMD_S_FANTASY_EXHIBITION_STATE
+{
+	optional FantasyExhibitionState action = 1;	 // 活动状态
+	optional uint32 curNum = 2;		             // 当前展品数量
+	optional uint32 maxNum = 3;	                 // 最大展品数量
+	optional uint64 actionId = 4;                // 当前活动ID
+	optional uint32 dropNum = 5;                 // 玩家掉落最大数量
+	optional uint32 rewardType = 6;              // 头名奖励类型(0金币1奖券2钻石100道具ID)
+	optional uint64 rewardValue = 7;             // 头名奖励数量
+	optional uint32 rankuserId = 8;              // 排名第一的玩家ID
+	optional uint32 contribute = 9;              // 排名第一的玩家扣除的充值贡献值
+	repeated uint32 number = 10;                 // 排名第一的玩家中奖编号
+	optional bytes nick = 11;	                 // 排名第一的玩家昵称
+	optional uint32 faceId = 12;	             // 排名第一的玩家头像ID
+	optional uint32 vipLev = 13;	             // 排名第一的玩家vip等级
+	optional uint32 rewardRankType = 14;         // 排名第一的玩家奖励类型
+	optional uint64 rewardRankValue = 15;        // 排名第一的玩家奖励数量
+}
+
+
+// 获取梦幻展览排名
+message CMD_C_GET_FANTASY_EXHIBITION_RANK
+{
+   
+}
+
+
+// 获取梦幻展览展品信息
+message CMD_C_GET_FANTASY_EXHIBITION_LOTTERY
+{
+   optional uint32 cur_lottery_num = 1;   //当前客户端数量
+}
+
+
+//获取排行榜信息
+message CMD_C_GetRankInfo
+{   optional RankType          Rank_type=1;                          //排行榜ID
+	optional int32    dwItemID=2;                                //数据
+}
+//获取排行榜信息
+message CMD_C_GetRankConfiguration
+{ 
+	optional RankType Rank_type=1;                  //数据
+}
+
+
