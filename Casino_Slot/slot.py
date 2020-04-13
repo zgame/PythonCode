@@ -27,12 +27,13 @@ win_multi = [
 def generate_matrix():
     my_matrix = []
     for i in range(slot_lines_50.LineHeight * slot_lines_50.LineWidth):
-        my_matrix.append(random.randint(0, len(card_type)))
+        my_matrix.append(random.randint(0, len(card_type) - 1))
     return my_matrix
 
 
 # 打印矩阵
 def print_matrix(my_matrix):
+    # print(my_matrix)
     for i in range(slot_lines_50.LineHeight):
         line = ""
         for j in range(slot_lines_50.LineWidth):
@@ -49,17 +50,17 @@ def calculate_one_line(my_line):
         # print("前2个ok")
         # 如果第3个跟前2个任何一个一样，或者第3个是万能，符合
         if my_line[2] == my_line[1] or my_line[2] == my_line[0] or my_line[2] == card_type_wild:
-            print("前3个ok，三联")
+            # print("前3个ok，三联")
             result = 3
             # 如果第4个跟前3个任何一个一样，或者第4个是万能，符合
             if my_line[3] == my_line[2] or my_line[3] == my_line[1] or my_line[3] == my_line[0] or \
                     my_line[3] == card_type_wild:
-                print("前4个ok， 四联")
+                # print("前4个ok， 四联")
                 result = 4
                 # 如果第5个跟前4个任何一个一样，或者第5个是万能，符合
                 if my_line[4] == my_line[3] or my_line[4] == my_line[2] or my_line[4] == my_line[1] or \
                         my_line[4] == my_line[0] or my_line[4] == card_type_wild:
-                    print("前5个ok， 五联")
+                    # print("前5个ok， 五联")
                     result = 5
     return result
 
@@ -74,7 +75,9 @@ def run_lines_all(my_matrix):
             matrix_line.append(card_type[my_matrix[line[i] * slot_lines_50.LineWidth + i]])
         # print(matrix_line)
         # 对连线进行判断
-        calculate_one_line(matrix_line)
+        result = calculate_one_line(matrix_line)
+        if result > 0:
+            print(result, "连线")
 
 
 # -----------------------------Run----------------------------------
@@ -85,7 +88,7 @@ print_matrix(matrix)
 now = time.time()
 # print("time.time(): %f " % now)
 run_lines_all(matrix)  # 遍历所有线查找
-print("time cost: %f 毫秒" % ((time.time() - now)*1000))
+print("time cost: %f 毫秒" % ((time.time() - now) * 1000))
 # print("time.time(): %f " % time.time())
 
 # print_matrix(generate_matrix())
