@@ -3,6 +3,7 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import zlib
+import gzip
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -17,6 +18,13 @@ def print_hi(name):
     print('decompressed:', repr(decompressed))
     # with open('1.txt', 'w', encoding='utf-8') as f:  # python3
     #     f.write(compressed.decode(encoding="utf-8"))
+
+    print('----------------------------')
+    f_in = open("1.txt", "rb")  # 打开文件
+    f_out = gzip.open("data.txt.gz", "wb")  # 创建压缩文件对象
+    f_out.writelines(f_in)
+    f_out.close()
+    f_in.close()
 
 
 def print_hex(bytes):
